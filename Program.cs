@@ -1,8 +1,14 @@
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+
+builder.Services.AddDbContextPool<AppDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DrugStoreDb")));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

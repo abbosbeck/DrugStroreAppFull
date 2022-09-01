@@ -1,4 +1,5 @@
-﻿using DrugStroreAppFull.Services;
+﻿using DrugStroreAppFull.Models;
+using DrugStroreAppFull.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,8 +10,8 @@ namespace DrugStroreAppFull.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private EmployeeCRUDService _employeeSvc;
-        public EmployeeController(EmployeeCRUDService employeeSvc)
+        private IGenericCRUDService<EmployeeModel> _employeeSvc;
+        public EmployeeController(IGenericCRUDService<EmployeeModel> employeeSvc)
         {
             _employeeSvc = employeeSvc;
         }
