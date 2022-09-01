@@ -19,16 +19,18 @@ namespace DrugStroreAppFull.Controllers
 
         // GET: api/<EmployeeController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(await _employeeSvc.GetAll());
         }
 
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            if(id <= 0)
+                return NotFound($"Employee with given id: {id} is not found");
+            return Ok(await _employeeSvc.GetById(id));
         }
 
         // POST api/<EmployeeController>
