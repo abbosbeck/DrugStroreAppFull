@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrugStroreAppFull", "DrugStroreAppFull.csproj", "{B2235A31-A13E-4492-93BE-4B0CE7A80FFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{4F508D38-D325-4CB3-B989-77A2813CF29D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B2235A31-A13E-4492-93BE-4B0CE7A80FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2235A31-A13E-4492-93BE-4B0CE7A80FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2235A31-A13E-4492-93BE-4B0CE7A80FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F508D38-D325-4CB3-B989-77A2813CF29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F508D38-D325-4CB3-B989-77A2813CF29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F508D38-D325-4CB3-B989-77A2813CF29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F508D38-D325-4CB3-B989-77A2813CF29D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
