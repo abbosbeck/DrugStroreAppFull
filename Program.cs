@@ -1,4 +1,6 @@
 using DataAccess;
+using DataAccess.Entities;
+using DrugStroreAppFull.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddDbContextPool<AppDbContext>(
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IGenericRepository<Employee>, SqlServiceEmployeeRepository>();
 
 var app = builder.Build();
 

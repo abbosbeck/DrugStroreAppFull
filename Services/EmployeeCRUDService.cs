@@ -7,13 +7,14 @@ namespace DrugStroreAppFull.Services
     public class EmployeeCRUDService : IGenericCRUDService<EmployeeModel>
     {
         private readonly IGenericRepository<Employee> _employeeRepository;
-        public EmployeeCRUDService(EmployeeRepository employeeRepository)
+        public EmployeeCRUDService(IGenericRepository<Employee> employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
 
         public async Task<EmployeeModel> Create(EmployeeModel model)
         {
+           
             var employee = new Employee
             {
                 Id = model.Id,
@@ -23,17 +24,20 @@ namespace DrugStroreAppFull.Services
                 Region = model.Region,
                 Sex = model.Sex
             };
-            var createdEmployee = await _employeeRepository.Create(employee);
+
+            
+            var creataeEmployee = await _employeeRepository.Create(employee);
             var result = new EmployeeModel
             {
-                Id = employee.Id,
-                Name = employee.Name,
-                Email = employee.Email,
-                Experinece = employee.Experinece,
-                Region = employee.Region,
-                Sex = employee.Sex
+                Id = creataeEmployee.Id,
+                Name = creataeEmployee.Name,
+                Email = creataeEmployee.Email,
+                Experinece = creataeEmployee.Experinece,
+                Region = creataeEmployee.Region,
+                Sex = creataeEmployee.Sex
             };
             return result;
+
         }
 
         public async Task<bool> Delete(int id)

@@ -10,7 +10,7 @@ namespace DrugStroreAppFull.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private IGenericCRUDService<EmployeeModel> _employeeSvc;
+        private readonly IGenericCRUDService<EmployeeModel> _employeeSvc;
         public EmployeeController(IGenericCRUDService<EmployeeModel> employeeSvc)
         {
             _employeeSvc = employeeSvc;
@@ -35,20 +35,30 @@ namespace DrugStroreAppFull.Controllers
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] EmployeeModel model)
         {
+            var createEmployee = await _employeeSvc.Create(model);
+            var routeValue = new { id = createEmployee.Id };
+            return CreatedAtRoute(routeValue, createEmployee);
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] EmployeeModel model)
         {
+            var updatedEmployee = await _employeeSvc.Update(id, model);
+            return Ok(updatedEmployee);
         }
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            bool deleteEmployee = await _employeeSvc.Delete(id);
+            if (deleteEmployee)
+                return Ok();
+            else
+                return NotFound();
         }
     }
 }
