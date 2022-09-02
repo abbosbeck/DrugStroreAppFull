@@ -1,6 +1,7 @@
 using DataAccess;
 using DataAccess.Entities;
 using DrugStroreAppFull.Models;
+using DrugStroreAppFull.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IGenericRepository<Employee>, SqlServiceEmployeeRepository>();
+
+builder.Services.AddScoped<IGenericCRUDService<EmployeeModel>, EmployeeCRUDService>();
 
 var app = builder.Build();
 
