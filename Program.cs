@@ -18,8 +18,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IGenericRepository<Employee>, SqlServiceEmployeeRepository>();
+builder.Services.AddScoped<IGenericRepository<DrugStore>, SqlServiceDrugStoreRepository>();
 
 builder.Services.AddScoped<IGenericCRUDService<EmployeeModel>, EmployeeCRUDService>();
+builder.Services.AddScoped<IGenericCRUDService<DrugStoreModel>, DrugStoreCRUDService>();
 
 var app = builder.Build();
 
