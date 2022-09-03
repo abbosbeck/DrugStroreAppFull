@@ -19,9 +19,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IGenericRepository<Employee>, SqlServiceEmployeeRepository>();
 builder.Services.AddScoped<IGenericRepository<DrugStore>, SqlServiceDrugStoreRepository>();
+builder.Services.AddScoped<IGenericRepository<Medicine>, SqlServiceMedicineRepository>();
 
 builder.Services.AddScoped<IGenericCRUDService<EmployeeModel>, EmployeeCRUDService>();
 builder.Services.AddScoped<IGenericCRUDService<DrugStoreModel>, DrugStoreCRUDService>();
+builder.Services.AddScoped<IGenericCRUDService<MedicineModel>, MedicineCRUDService>();
 
 var app = builder.Build();
 
