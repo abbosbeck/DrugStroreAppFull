@@ -1,5 +1,4 @@
-﻿using DataAccess;
-using DrugStroreAppFull.Models;
+﻿using DrugStroreAppFull.Models;
 using DrugStroreAppFull.Services;
 using Microsoft.AspNetCore.Mvc;
 
